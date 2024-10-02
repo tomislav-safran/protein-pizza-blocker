@@ -1,5 +1,5 @@
 function executeProteinPizzaPrevention() {
-    const PROTEINSKA_PIZZA = "Buffalo cvjetača & dip"
+    const PROTEINSKA_PIZZA = "Proteinska pizza";
     const h1Elements = [...document.querySelectorAll("h1")];
     const isProteinPizzaPresent = h1Elements.some(h1 => h1.textContent.includes(PROTEINSKA_PIZZA));
 
