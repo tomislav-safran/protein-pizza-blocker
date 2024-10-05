@@ -1,7 +1,8 @@
 function executeProteinPizzaPrevention() {
-    const PROTEINSKA_PIZZA = "Proteinska pizza";
     const h1Elements = [...document.querySelectorAll("h1")];
-    const isProteinPizzaPresent = h1Elements.some(h1 => h1.textContent.includes(PROTEINSKA_PIZZA));
+    const isProteinPizzaPresent = h1Elements.some(
+        h1 => h1.textContent.toLowerCase().includes('proteinska') && h1.textContent.toLowerCase().includes('pizza')
+    );
 
     const button = document.querySelector("button[class^='PriceButton-module']");
     if (button) {
@@ -32,7 +33,7 @@ function removeMoveButtonHandler(button) {
 
 function moveButtonRandomly(event) {
     const button = event.currentTarget;
-    const { innerWidth: width, innerHeight: height } = window;
+    const {innerWidth: width, innerHeight: height} = window;
     const maxTop = height - button.offsetHeight;
     const maxLeft = width - button.offsetWidth;
 
@@ -43,10 +44,10 @@ function moveButtonRandomly(event) {
 }
 
 function setButtonStyle(button, top = "", left = "") {
-        button.style.position = top && left ? "fixed" : "";
-        button.style.zIndex = top && left ? "1000" : "";
-        button.style.top = top;
-        button.style.left = left;
+    button.style.position = top && left ? "fixed" : "";
+    button.style.zIndex = top && left ? "1000" : "";
+    button.style.top = top;
+    button.style.left = left;
 }
 
 window.onload = executeProteinPizzaPrevention;
@@ -60,6 +61,5 @@ const observer = new MutationObserver((mutations) => {
 });
 
 observer.observe(document.body, {
-    childList: true,
-    subtree: true
+    childList: true, subtree: true
 });
